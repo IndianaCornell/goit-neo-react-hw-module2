@@ -33,7 +33,7 @@ function App() {
       {totalFeedback > 0 ? (
         <Feedback feedBack={feedBack} totalFeedback={totalFeedback} />
       ) : (
-        <p>No feedback yet :c</p>
+        <p>No feedback yet</p>
       )}
     </>
   );
