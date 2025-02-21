@@ -3,6 +3,7 @@ import "./App.css";
 import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
 import Options from "./Options/Options";
+import Notification from "./Notification/Notification";
 
 function App() {
   const getSavedFeedback = () => {
@@ -17,6 +18,7 @@ function App() {
   }, [feedBack]);
 
   const totalFeedback = feedBack.good + feedBack.neutral + feedBack.bad;
+  const positive = Math.trunc((feedBack.good / totalFeedback) * 100);
 
   const updateFeedback = (feedbackType) => {
     if (feedbackType === "reset") {
@@ -31,9 +33,13 @@ function App() {
       <Description />
       <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
       {totalFeedback > 0 ? (
-        <Feedback feedBack={feedBack} totalFeedback={totalFeedback} />
+        <Feedback
+          feedBack={feedBack}
+          totalFeedback={totalFeedback}
+          positive={positive}
+        />
       ) : (
-        <p>No feedback yet :C</p>
+        <Notification />
       )}
     </>
   );

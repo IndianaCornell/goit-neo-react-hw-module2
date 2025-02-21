@@ -1,7 +1,4 @@
-const Feedback = ({ feedBack, totalFeedback }) => {
-  const total = feedBack.good + feedBack.neutral + feedBack.bad;
-  const positive = Math.trunc((feedBack.good / total) * 100);
-
+const Feedback = ({ feedBack, totalFeedback, positive }) => {
   return (
     <>
       <ul>
